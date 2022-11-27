@@ -1,8 +1,10 @@
 #!/bin/bash
-if [[ ! -n "$1"]]; then
+if [[ ! -n "$1"]]
+then
     echo "Missing parameter -- check readme.md"
     exit 1
-elif [[ ! -n "$2"]]; then
+elif [[ ! -n "$2"]]
+then
     echo "Missing parameter -- check readme.md"
     exit 1
 fi
