@@ -4,7 +4,7 @@ hostnamectl set-hostname $1
 curl -fsSL https://pkgs.tailscale.com/stable/raspbian/bullseye.noarmor.gpg | sudo tee /usr/share/keyrings/tailscale-archive-keyring.gpg > /dev/null
 curl -fsSL https://pkgs.tailscale.com/stable/raspbian/bullseye.tailscale-keyring.list | sudo tee /etc/apt/sources.list.d/tailscale.list
 apt update
-apt install -y kali-grant-root git xrdp tailscale apt-transport-https dnsmasq
+apt install -y kali-grant-root git xrdp tailscale apt-transport-https dnsmasq ufw
 apt autoremove
 dpkg-reconfigure kali-grant-root
 sed -i 's/^port=3389/port=tcp:\/\/:3389/g' /etc/xrdp/xrdp.ini
