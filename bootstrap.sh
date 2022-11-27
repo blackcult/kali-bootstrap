@@ -1,9 +1,9 @@
 #!/bin/bash
-if [[ ! -n "$1"]]
+if [[ ! -n "$1" ]]
 then
     echo "Missing parameter -- check readme.md"
     exit 1
-elif [[ ! -n "$2"]]
+elif [[ ! -n "$2" ]]
 then
     echo "Missing parameter -- check readme.md"
     exit 1
@@ -21,7 +21,7 @@ systemctl restart xrdp
 git clone git@github.com:morrownr/8814au.git
 ./8814au/install-driver.sh
 systemctl enable --now tailscaled
-tailscale up --ssh --authkey $2
+tailscale up --ssh --force-reauth --authkey $2
 sed -i '1s/^/dtoverlay=dwc2\n/' /boot/config.txt
 echo "modules-load=dwc2" >> /boot/cmdline.txt
 echo "libcomposite" >> /etc/modules
