@@ -1,8 +1,10 @@
 #!/bin/bash
 if [[! -n "$1"]]; then
     echo "Missing parameter -- check readme.md"
+    exit 1
 elif [[! -n "$2"]]; then
     echo "Missing parameter -- check readme.md"
+    exit 1
 fi
 hostnamectl set-hostname $1
 curl -fsSL https://pkgs.tailscale.com/stable/raspbian/bullseye.noarmor.gpg | sudo tee /usr/share/keyrings/tailscale-archive-keyring.gpg > /dev/null
